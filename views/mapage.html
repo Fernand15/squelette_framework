@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+{% endblock %}
+
+{% block body %}
+    <h1>Formulaire</h1>
+    <form action="?c=index&t=getData" method="post">
+    <input type="text" id="nom" name="nom">
+    <input type="submit" value="Envoyer">
+    </form>
+{% endblock %}

@@ -10,8 +10,26 @@ class IndexController extends Controller
     	$connectUser="Philippe";
     	$message=$params;
     	var_dump ($params);
+    	$em = $this->em;
+    	
         echo $this->twig->render('index.html', ['connectUser' =>   $connectUser]);
     }
     
+    public function getUsers($params) 
+    {
+        $query = $this->em->createQuery('SELECT u FROM Users u');
+        $users = $query->getResult();
+        dump($users);
+        echo $this->twig->render('users.twig', ['users' =>   $users]);
+
+    }
+    public function getVilles($params) 
+    {
+        $query = $this->em->createQuery("SELECT v FROM Villes v WHERE v.id BETWEEN 1 AND 20");
+        $villes = $query->getResult();
+        dump($villes);
+        echo $this->twig->render('villes.twig', ['villes' =>   $villes]);
+
+    }
     
 }

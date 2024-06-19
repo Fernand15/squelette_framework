@@ -38,4 +38,4 @@ if ($class == "Controllers\IndexController" && in_array($target, get_class_metho
 { // dans tout les autres cas ou c != index et t n'existe pas alors
     $class = new $class; // c = index 
     call_user_func_array([$class, $target],$params); 
-} 
+}
